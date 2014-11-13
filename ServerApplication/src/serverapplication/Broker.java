@@ -27,17 +27,17 @@ public class Broker {
             this.connection = DriverManager.getConnection(url,user,password);
            // MessageAck mensaje = add("pelaterlareconchadetumadreeeeeeeeeeeeeeeeeeeeee","lalo",connection);
            // MessageAck mensaje = remove("aquiles",connection);
-           // MessageAck mensaje = modify("juan","juan123","pelater2014dasdasdafafdsgsgssfsfsfs",connection);
+            MessageAck mensaje = modify("lalo","asdf","juan123");
            // MessageAck mensaje = authenticate("adolfo hitler","juan123","192.0.0.0",connection);
-           //System.out.println(mensaje.getStatus()+" "+mensaje.getDescripcion());
+           System.out.println(mensaje.getStatus()+" "+mensaje.getDescripcion());
             
-//            ArrayList list = listUsers();
-//            
-//            Iterator<Usuario> iter2 = list.iterator();
-//            while(iter2.hasNext()){
-//                    Usuario user1 = (Usuario)iter2.next();
-//                    System.out.println(user1.getUsername()+"|"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(user1.getTimestamp()));
-//            }
+           /* ArrayList list = listAut("juan");
+           
+            Iterator<Autenticacion> iter2 = list.iterator();
+            while(iter2.hasNext()){
+                    Autenticacion aut1 = (Autenticacion)iter2.next();
+                    System.out.println(aut1.getHost()+"|"+new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(aut1.getTimestamp()));
+            }*/
             
     
         }
@@ -81,19 +81,14 @@ public class Broker {
     public MessageAck modify(String nombreUsuario,String contraseña, String nuevaContraseña){
         try{
              Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT username FROM usuarios WHERE username='"+nombreUsuario+"'");
+             ResultSet resultSet = statement.executeQuery("SELECT username FROM usuarios WHERE username='"+nombreUsuario+"'and password='"+contraseña+"'");
              if (resultSet.next()){
-                 int resultSet2 = statement.executeUpdate("UPDATE  usuarios SET password='"+nuevaContraseña+"'WHERE username='"+nombreUsuario+"' and password='"+contraseña+"'");
-                 if (resultSet2!=0){
-                     return new MessageAck("OK","");
-                 }
-                 else{
-                     return new MessageAck("Error","Invalid password");
-                 }
-             }else{
-                 return new MessageAck("Error","User does not exists");
+                  statement.executeUpdate("UPDATE  usuarios SET password='"+nuevaContraseña+"'WHERE username='"+nombreUsuario+"'");
+                  return new MessageAck("OK","");
              }
-             
+             else{
+                     return new MessageAck("Error","Invalid username or password");
+             }
         }catch (SQLException e){ return new MessageAck("Error",e.getMessage());}
     }
     
@@ -115,17 +110,25 @@ public class Broker {
     public ArrayList listUsers() throws SQLException{
         Statement statement = connection.createStatement();
         ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-          ResultSet resultSet = statement.executeQuery("SELECT username,timestamp FROM usuarios");
-          while (resultSet.next()){
+        ResultSet resultSet = statement.executeQuery("SELECT username,timestamp FROM usuarios");
+        while (resultSet.next()){
             Usuario usuario = new Usuario(resultSet.getString("username"),resultSet.getDate("timestamp"));
             usuarios.add(usuario);
           }
         return usuarios;
     }
     
-    //public ArrayList listAut(String nombreUsuario,Connection connection){
-        
-    //}
+    public ArrayList listAut(String nombreUsuario) throws SQLException{
+     
+          Statement statement = connection.createStatement();
+          ArrayList<Autenticacion> autenticaciones = new ArrayList<Autenticacion>();
+          ResultSet resultSet = statement.executeQuery("SELECT host,timestamp FROM autenticaciones WHERE username='"+nombreUsuario+"'");
+          while (resultSet.next()){
+              Autenticacion autenticacion = new Autenticacion (resultSet.getString("host"),resultSet.getDate("timestamp"));
+              autenticaciones.add(autenticacion);
+          }
+          return autenticaciones;
+    }
     public static Broker getInstance(String url,String user,String password)/*,String host)*/{   
         if (instance == null){
             instance = new Broker(url,user, password)/*,host)*/;
