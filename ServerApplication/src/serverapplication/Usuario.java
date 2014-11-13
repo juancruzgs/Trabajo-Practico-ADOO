@@ -13,8 +13,16 @@ import java.util.Date;
  */
 public class Usuario {
     
-    String username;
-    Date timestamp;
+    private String username;
+
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+    private Date timestamp;
     
     public Usuario(String username,Date timestamp){
         this.username=username;

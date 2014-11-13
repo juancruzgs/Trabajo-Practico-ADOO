@@ -7,9 +7,12 @@ package serverapplication;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.Properties;
 import java.io.*;
 import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,6 +24,7 @@ public class Server {
     int port;
     String passwordAdmin;
     String mode; //SERA XML O EMBEDDED, CREAR LA FACTORY CORRESPONDIENTE
+    String remoteIP;
     
     /** 
      * Server Constructor
@@ -78,10 +82,14 @@ public class Server {
       try{
           servidor = new ServerSocket(this.port);
           socket = servidor.accept();
+          this.remoteIP = socket.getRemoteSocketAddress().toString();
+          this.remoteIP = this.remoteIP.substring(remoteIP.indexOf("/")+1,remoteIP.indexOf(":"));
+          
           out = new PrintWriter(socket.getOutputStream(),true);
           in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
           
-          System.out.println(in.readLine());
+
+          //System.out.println(in.readLine());
       }
       catch (Exception e) { e.printStackTrace(); }        
     }
