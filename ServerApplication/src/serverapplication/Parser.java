@@ -8,6 +8,10 @@ package serverapplication;
  *
  * @author Juan
  */
-public class Parser {
+public interface Parser {
+    
+    public Command parse(String message);        
+            
+    //public Command getCommand
     
 }

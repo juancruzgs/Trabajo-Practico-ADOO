@@ -23,8 +23,10 @@ public class Server {
     Broker broker;
     int port;
     String passwordAdmin;
-    String mode; //SERA XML O EMBEDDED, CREAR LA FACTORY CORRESPONDIENTE
     String remoteIP;
+    AbstractFactory factory;
+    Sender sender;
+    Parser parser;
     
     /** 
      * Server Constructor
@@ -47,15 +49,17 @@ public class Server {
             entrada = new FileInputStream("serverConfig.properties");
             // cargamos el archivo de propiedades
             propiedades.load(entrada);
-            // obtenemos las propiedades y las imprimimos
+            // obtenemos las propiedades y las almacenamos
 
             this.broker = Broker.getInstance(propiedades.getProperty("urlconnection"),propiedades.getProperty("userbd"),
-                                propiedades.getProperty("passwordbd"));//socket.getRemoteSocketAddress().toString());
+                                propiedades.getProperty("passwordbd"));
 
                                 
             this.passwordAdmin= propiedades.getProperty("passwordadmin");
             this.port=Integer.parseInt(propiedades.getProperty("port"));
-            this.mode=propiedades.getProperty("mode"); //CREAR FACTORY
+   
+            //Crea el sender y el parser
+            createFactory(propiedades.getProperty("mode"));
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -88,10 +92,27 @@ public class Server {
           out = new PrintWriter(socket.getOutputStream(),true);
           in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
           
-
+          
+          
           //System.out.println(in.readLine());
       }
       catch (Exception e) { e.printStackTrace(); }        
+    }
+    
+    /**
+     * Creates the suitable sender and parser
+     * @param mode XML or Embedded
+     */
+    private void createFactory(String mode){
+        if (mode.toLowerCase().equals("xml")) {
+             this.sender = new XMLSender();
+             this.parser = new XMLParser();
+        }
+        else
+        if (mode.toLowerCase().equals("embedded")) {
+             this.sender = new EmbeddedSender();
+             this.parser = new EmbeddedParser();
+        }
     }
 
  }

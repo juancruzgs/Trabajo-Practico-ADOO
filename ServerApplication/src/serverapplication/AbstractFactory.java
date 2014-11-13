@@ -8,10 +8,6 @@ package serverapplication;
  *
  * @author Juan
  */
-public class EmbeddedParser implements Parser{
-    
-    public Command parse(String message){
-        return null;
-    }
+public class AbstractFactory {
     
 }
