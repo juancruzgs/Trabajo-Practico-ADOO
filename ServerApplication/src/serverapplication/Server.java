@@ -1,4 +1,4 @@
-/*
+﻿/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -44,8 +44,10 @@ public class Server {
             // cargamos el archivo de propiedades
             propiedades.load(entrada);
             // obtenemos las propiedades y las imprimimos
-            broker = new Broker(propiedades.getProperty("urlconnection"),propiedades.getProperty("userbd"),
+
+            this.broker = Broker.getInstance(propiedades.getProperty("urlconnection"),propiedades.getProperty("userbd"),
                                 propiedades.getProperty("passwordbd"));
+
             
             this.passwordAdmin= propiedades.getProperty("passwordadmin");
             this.port=Integer.parseInt(propiedades.getProperty("port"));
