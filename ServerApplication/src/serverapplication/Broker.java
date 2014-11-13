@@ -6,6 +6,7 @@ package serverapplication;
 
 import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
 /**
  *
  * @author Juan
@@ -16,15 +17,17 @@ public class Broker {
      */
     private static Broker instance;
     
-    private Broker(String url, String user, String password){
+    private Broker(String url, String user, String password)/*,String host)*/{
         try{
             
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection(url,user,password);
            // MessageAck mensaje = add("pelaterlareconchadetumadreeeeeeeeeeeeeeeeeeeeee","lalo",connection);
            // MessageAck mensaje = remove("aquiles",connection);
-            MessageAck mensaje = modify("juan","lalo","pelater2014",connection);
-            System.out.println(mensaje.getStatus()+" "+mensaje.getDescripcion());
+           // MessageAck mensaje = modify("juan","juan123","pelater2014dasdasdafafdsgsgssfsfsfs",connection);
+           // MessageAck mensaje = authenticate("adolfo hitler","juan123","192.0.0.0",connection);
+           //System.out.println(mensaje.getStatus()+" "+mensaje.getDescripcion());
+            listUsers(connection);
           /*  Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM usuarios");
             
@@ -87,14 +90,45 @@ public class Broker {
              
         }catch (SQLException e){ return new MessageAck("Error",e.getMessage());}
     }
-    public static Broker getInstance(String url,String user,String password){   
+    
+    public MessageAck authenticate(String nombreUsuario,String contraseña,String host,Connection connection) throws SQLException{
+        try{
+            
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT username FROM usuarios WHERE username='"+nombreUsuario+"'and password='"+contraseña+"'");
+            if (resultSet.next()){
+                statement.executeUpdate ("INSERT INTO autenticaciones (username,host,timestamp) VALUES ('"+nombreUsuario+"','"+host+"',"+"NOW())");    
+                return new MessageAck("OK","");
+            }
+                else{
+                    return new MessageAck("Error","Could not authenticate due to invalid username or password");
+                }
+            }catch (SQLException e) {return new MessageAck("Error",e.getMessage()); }
+    }
+    
+    public ArrayList listUsers(Connection connection) throws SQLException{
+        Statement statement = connection.createStatement();
+        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+          ResultSet resultSet = statement.executeQuery("SELECT username,timestamp FROM usuarios");
+          while (resultSet.next()){
+            Usuario usuario = new Usuario(resultSet.getString("username"),resultSet.getDate("timestamp"));
+            usuarios.add(usuario);
+          }
+        return usuarios;
+    }
+    
+    public ArrayList listAut(String nombreUsuario,Connection connection){
+        
+    }
+    public static Broker getInstance(String url,String user,String password)/*,String host)*/{   
         if (instance == null){
-            instance = new Broker(url,user, password);
+            instance = new Broker(url,user, password)/*,host)*/;
         }
     
         return instance;
     }
-            
+    
+    
      
     
 

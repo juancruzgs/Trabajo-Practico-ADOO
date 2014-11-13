@@ -46,9 +46,9 @@ public class Server {
             // obtenemos las propiedades y las imprimimos
 
             this.broker = Broker.getInstance(propiedades.getProperty("urlconnection"),propiedades.getProperty("userbd"),
-                                propiedades.getProperty("passwordbd"));
+                                propiedades.getProperty("passwordbd"));//socket.getRemoteSocketAddress().toString());
 
-            
+                                
             this.passwordAdmin= propiedades.getProperty("passwordadmin");
             this.port=Integer.parseInt(propiedades.getProperty("port"));
             this.mode=propiedades.getProperty("mode"); //CREAR FACTORY
