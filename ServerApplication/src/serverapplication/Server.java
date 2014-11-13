@@ -8,6 +8,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.io.*;
+import java.net.*;
 
 /**
  *
@@ -23,11 +25,14 @@ public class Server {
      * Server Constructor
      */
     public Server(){
-        
+         
       setProperties();
+      waitMessage();
  
     }
-    
+    /**
+     * Sets properties from properties file
+     */
     private void setProperties() {
         
         Properties propiedades = new Properties();
@@ -55,6 +60,26 @@ public class Server {
                   }
              }
            }
+    }
+    /**
+     * Waits for a Client message
+     */
+    private void waitMessage(){
+        
+      ServerSocket servidor = null;
+      Socket socket = null;
+      PrintWriter out;
+      BufferedReader in;    
+      
+      try{
+          servidor = new ServerSocket(this.port);
+          socket = servidor.accept();
+          out = new PrintWriter(socket.getOutputStream(),true);
+          in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+          
+          System.out.println(in.readLine());
+      }
+      catch (Exception e) { e.printStackTrace(); }        
     }
 
  }

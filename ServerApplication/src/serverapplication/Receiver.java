@@ -10,4 +10,5 @@ package serverapplication;
  */
 public class Receiver {
     
+    
 }
