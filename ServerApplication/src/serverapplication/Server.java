@@ -43,7 +43,7 @@ public class Server {
             // cargamos el archivo de propiedades
             propiedades.load(entrada);
             // obtenemos las propiedades y las imprimimos
-            broker = new Broker(propiedades.getProperty("urlconexion"),propiedades.getProperty("usuariobd"),
+            this.broker = Broker.getInstance(propiedades.getProperty("urlconexion"),propiedades.getProperty("usuariobd"),
                                 propiedades.getProperty("contraseñabd"));
             
             this.contraseñaAdmin= propiedades.getProperty("contraseña");
