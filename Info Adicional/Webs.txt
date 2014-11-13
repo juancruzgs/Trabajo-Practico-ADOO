@@ -4,3 +4,5 @@ http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html
 https://docs.oracle.com/javase/tutorial/jdbc/basics/storedprocedures.html
 http://es.scribd.com/doc/143875290/El-Patron-Broker
 http://jhodrickgg.wordpress.com/2007/11/30/conectar-mysql-a-java-netbeans/
+
+https://github.com/tincho23/objetros/blob/master/Ejemplos/Autentificacion/src/autentificacion/clase_Acceso.java
