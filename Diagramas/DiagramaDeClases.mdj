@@ -86,7 +86,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "Receiver",
+											"text": "Parser",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -3851,7 +3851,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "XMLReceiver",
+											"text": "XMLParser",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -4028,6 +4028,8 @@
 								"$ref": "AAAAAAFJprP4t6B3zt0="
 							},
 							"wordWrap": false,
+							"suppressAttributes": false,
+							"suppressOperations": false,
 							"showMultiplicity": true,
 							"showOperationSignature": true,
 							"attributeCompartment": {
@@ -4105,7 +4107,7 @@
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "EmbeddedReceiver",
+											"text": "EmbeddedParser",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5
 										},
@@ -7067,7 +7069,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Receiver",
+					"name": "Parser",
 					"visibility": "public",
 					"operations": [
 						{
@@ -7999,7 +8001,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "XMLReceiver",
+					"name": "XMLParser",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -8028,7 +8030,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "EmbeddedReceiver",
+					"name": "EmbeddedParser",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",

@@ -19,7 +19,8 @@ public class Server {
     
     Broker broker;
     int port;
-    String contraseñaAdmin;
+    String passwordAdmin;
+    String mode; //SERA XML O EMBEDDED, CREAR LA FACTORY CORRESPONDIENTE
     
     /** 
      * Server Constructor
@@ -43,11 +44,12 @@ public class Server {
             // cargamos el archivo de propiedades
             propiedades.load(entrada);
             // obtenemos las propiedades y las imprimimos
-            broker = new Broker(propiedades.getProperty("urlconexion"),propiedades.getProperty("usuariobd"),
-                                propiedades.getProperty("contraseñabd"));
+            broker = new Broker(propiedades.getProperty("urlconnection"),propiedades.getProperty("userbd"),
+                                propiedades.getProperty("passwordbd"));
             
-            this.contraseñaAdmin= propiedades.getProperty("contraseña");
-            this.port=Integer.parseInt(propiedades.getProperty("puerto"));
+            this.passwordAdmin= propiedades.getProperty("passwordadmin");
+            this.port=Integer.parseInt(propiedades.getProperty("port"));
+            this.mode=propiedades.getProperty("mode"); //CREAR FACTORY
 
         } catch (IOException ex) {
             ex.printStackTrace();
