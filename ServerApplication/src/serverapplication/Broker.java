@@ -18,12 +18,12 @@ public class Broker {
         try{
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             Connection connection = DriverManager.getConnection(url,user,password);
-            //Statement statement = connection.createStatement();
-            //ResultSet resultSet = statement.executeQuery("SELECT * FROM usuarios");
+          /*  Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM usuarios");
             
-            //while (resultSet.next()){
-            //     System.out.println(resultSet.getString(1));
-            //}
+            while (resultSet.next()){
+                 System.out.println(resultSet.getString(1));
+            } */
         }
         catch (Exception ex)
         { ex.printStackTrace(); }
