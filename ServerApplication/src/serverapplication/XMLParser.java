@@ -49,9 +49,16 @@ public class XMLParser implements Parser{
             if (tipo.equals("AUTHENTICATE")){
                 command.addParameter((String)xpath.evaluate("/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
                 command.addParameter((String)xpath.evaluate("/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
-            }                
-            
-            
+            }           
+            else
+            if (tipo.equals("LIST-USERS")){
+                command.addParameter((String)xpath.evaluate("/ADM-PASS",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+            }         
+            else
+            if (tipo.equals("LIST-AUT")){
+                command.addParameter((String)xpath.evaluate("/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/ADM-PASS",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+            }                         
             
             return command;
             

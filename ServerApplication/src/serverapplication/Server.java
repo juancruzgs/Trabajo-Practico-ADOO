@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 import java.io.*;
 import java.net.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -92,7 +93,14 @@ public class Server {
           out = new PrintWriter(socket.getOutputStream(),true);
           in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
           
+          Command command = parser.parse(in.readLine());
+          String description = command.getDescription();
+          ArrayList<String> parameters = command.getParameters();
           
+          if (description.equals("ADD")){
+              MessageAck response = broker.add(parameters.get(0), parameters.get(1));
+              //sender.sendResponse("ADD",response);
+          }
           
           //System.out.println(in.readLine());
       }

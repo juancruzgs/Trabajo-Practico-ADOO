@@ -14,6 +14,14 @@ public class Command {
 
     private String description;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public ArrayList<String> getParameters() {
+        return parameters;
+    }
+
     public Command(String description) {
         this.description = description;
     }
