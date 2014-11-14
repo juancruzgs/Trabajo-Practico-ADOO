@@ -9,6 +9,8 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Juan
@@ -27,9 +29,9 @@ public class Broker {
             this.connection = DriverManager.getConnection(url,user,password);
            // MessageAck mensaje = add("pelaterlareconchadetumadreeeeeeeeeeeeeeeeeeeeee","lalo",connection);
            // MessageAck mensaje = remove("aquiles",connection);
-            MessageAck mensaje = modify("lalo","asdf","juan123");
+           // MessageAck mensaje = modify("lalo","asdf","juan123");
            // MessageAck mensaje = authenticate("adolfo hitler","juan123","192.0.0.0",connection);
-           System.out.println(mensaje.getStatus()+" "+mensaje.getDescripcion());
+           //System.out.println(mensaje.getStatus()+" "+mensaje.getDescripcion());
             
            /* ArrayList list = listAut("juan");
            
@@ -45,7 +47,7 @@ public class Broker {
         { ex.printStackTrace(); }
     }
     
-    public MessageAck add(String nombreUsuario,String contraseña) throws SQLException{
+    public MessageAck add(String nombreUsuario,String contraseña){
         try{
         
         Statement statement = connection.createStatement();
@@ -92,7 +94,7 @@ public class Broker {
         }catch (SQLException e){ return new MessageAck("Error",e.getMessage());}
     }
     
-    public MessageAck authenticate(String nombreUsuario,String contraseña,String host) throws SQLException{
+    public MessageAck authenticate(String nombreUsuario,String contraseña,String host){
         try{
             
             Statement statement = connection.createStatement();
@@ -107,27 +109,36 @@ public class Broker {
             }catch (SQLException e) {return new MessageAck("Error",e.getMessage()); }
     }
     
-    public ArrayList listUsers() throws SQLException{
-        Statement statement = connection.createStatement();
-        ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-        ResultSet resultSet = statement.executeQuery("SELECT username,timestamp FROM usuarios");
-        while (resultSet.next()){
-            Usuario usuario = new Usuario(resultSet.getString("username"),resultSet.getDate("timestamp"));
-            usuarios.add(usuario);
-          }
-        return usuarios;
+    public ArrayList listUsers(){
+        try {
+            Statement statement = connection.createStatement();
+            ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+            ResultSet resultSet = statement.executeQuery("SELECT username,timestamp FROM usuarios");
+            while (resultSet.next()){
+                Usuario usuario = new Usuario(resultSet.getString("username"),resultSet.getDate("timestamp"));
+                usuarios.add(usuario);
+              }
+            return usuarios;
+        } catch (SQLException ex) {
+            Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
     
-    public ArrayList listAut(String nombreUsuario) throws SQLException{
-     
-          Statement statement = connection.createStatement();
-          ArrayList<Autenticacion> autenticaciones = new ArrayList<Autenticacion>();
-          ResultSet resultSet = statement.executeQuery("SELECT host,timestamp FROM autenticaciones WHERE username='"+nombreUsuario+"'");
-          while (resultSet.next()){
-              Autenticacion autenticacion = new Autenticacion (resultSet.getString("host"),resultSet.getDate("timestamp"));
-              autenticaciones.add(autenticacion);
-          }
-          return autenticaciones;
+    public ArrayList listAut(String nombreUsuario){
+        try {
+            Statement statement = connection.createStatement();
+            ArrayList<Autenticacion> autenticaciones = new ArrayList<Autenticacion>();
+            ResultSet resultSet = statement.executeQuery("SELECT host,timestamp FROM autenticaciones WHERE username='"+nombreUsuario+"'");
+            while (resultSet.next()){
+                Autenticacion autenticacion = new Autenticacion (resultSet.getString("host"),resultSet.getDate("timestamp"));
+                autenticaciones.add(autenticacion);
+            }
+            return autenticaciones;
+        } catch (SQLException ex) {
+            Logger.getLogger(Broker.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
     public static Broker getInstance(String url,String user,String password)/*,String host)*/{   
         if (instance == null){

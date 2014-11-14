@@ -10,24 +10,17 @@ import java.util.ArrayList;
  *
  * @author Juan
  */
-public class Command {
-
-    private String description;
-
-    public String getDescription() {
-        return description;
-    }
+public abstract class Command {
 
     public ArrayList<String> getParameters() {
         return parameters;
     }
 
-    public Command(String description) {
-        this.description = description;
-    }
-    private ArrayList<String> parameters = new ArrayList<String>();
+    protected ArrayList<String> parameters = new ArrayList<String>();
 
     public void addParameter(String param){
         parameters.add(param);
     }    
+    
+    public abstract void execute(Broker broker, Sender sender);
 }

@@ -8,10 +8,11 @@ package serverapplication;
  *
  * @author Juan
  */
-public interface Parser {
+public class CommandError extends Command{
     
-    public Command parse(String message, String password);        
-            
-    //public Command getCommand
+    public void execute(Broker broker, Sender sender){
+        
+        //sender.sendError("Unknown Error");
+    }
     
 }
