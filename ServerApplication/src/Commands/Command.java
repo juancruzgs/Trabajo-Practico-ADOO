@@ -35,7 +35,7 @@ public abstract class Command {
         parameters.add(param);
     }    
     /**
-     * Calls broker, 
+     * calls broker with the correspondent parameters and sends the result to the sender
      */
     public abstract void execute();
 }

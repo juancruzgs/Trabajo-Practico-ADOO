@@ -55,12 +55,14 @@ public class Broker {
     public MessageAck remove(String username){
         try{
             Statement statement = connection.createStatement();
-            int resultSet = statement.executeUpdate("DELETE FROM usuarios WHERE username='"+username+"'");
-            if  (resultSet==0){
-                 return new MessageAck("ERROR","User does not exists");
+            ResultSet resultSet = statement.executeQuery("SELECT username from usuarios WHERE username'"+username+"'");
+            if (resultSet.next()){
+               statement.executeUpdate("DELETE FROM autenticaciones WHERE username='"+username+"'"); 
+               statement.executeUpdate("DELETE FROM usuarios WHERE username='"+username+"'");
+               return new MessageAck("OK","");
             }
             else{
-                return new MessageAck("OK","");
+                 return new MessageAck("ERROR","User does not exists");
             }
         }catch (SQLException e) { return new MessageAck ("ERROR",e.getMessage());}
     
