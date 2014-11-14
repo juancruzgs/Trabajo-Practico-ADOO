@@ -55,7 +55,7 @@ public class Broker {
     public MessageAck remove(String username){
         try{
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT username from usuarios WHERE username'"+username+"'");
+            ResultSet resultSet = statement.executeQuery("SELECT username FROM usuarios WHERE username='"+username+"'");
             if (resultSet.next()){
                statement.executeUpdate("DELETE FROM autenticaciones WHERE username='"+username+"'"); 
                statement.executeUpdate("DELETE FROM usuarios WHERE username='"+username+"'");
