@@ -11,13 +11,15 @@
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/User.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/MessageAck.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandModify.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/XMLServer.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandAuthenticate.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Command.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Receiver.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Authentication.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandAdd.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Server.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandListAut.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/EmbeddedServer.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandRemove.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandListAut.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/XMLSender.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandError.java</file>
         </group>
