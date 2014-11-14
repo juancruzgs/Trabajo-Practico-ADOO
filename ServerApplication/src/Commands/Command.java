@@ -9,7 +9,7 @@ import XMLSender.XMLSender;
 import java.util.ArrayList;
 
 /**
- *
+ * An specific action that client wants to execute
  * @author Juan
  */
 public abstract class Command {
@@ -34,6 +34,8 @@ public abstract class Command {
     public void addParameter(String param){
         parameters.add(param);
     }    
-    
+    /**
+     * Calls broker, 
+     */
     public abstract void execute();
 }

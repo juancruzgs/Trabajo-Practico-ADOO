@@ -14,7 +14,11 @@ public class MessageAck {
     private String status;
     private String description;
     
-    
+    /**
+     * MessageAck constructor
+     * @param status
+     * @param description 
+     */
     public MessageAck(String status,String description){
         this.status= status;
         this.description=description;

@@ -36,7 +36,7 @@ public class XMLParser{
     /**
      * Parse a XML file 
      * @param message action that client wants to be done
-     * @param passwordAdmin p
+     * @param passwordAdmin password from admin
      * @param remoteIP ip from the client
      * @return 
      */

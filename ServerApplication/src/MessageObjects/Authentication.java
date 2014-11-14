@@ -8,7 +8,7 @@ package MessageObjects;
 import java.sql.Timestamp;
 
 /**
- *
+ * Return an authentication from a specific user 
  * @author Maximiliano
  */
 public class Authentication {
@@ -17,7 +17,11 @@ public class Authentication {
     private String host;
     private Timestamp timestamp;
     
-    
+    /**
+     * User constructor
+     * @param host
+     * @param timestamp 
+     */
     public Authentication(String host, Timestamp timestamp) {
         this.host = host;
         this.timestamp = timestamp;
