@@ -35,11 +35,11 @@ public class Broker {
         { ex.printStackTrace(); }
     }
     /**
-     * MessageAck add object
+     * Add user to database
      * 
      * @param username 
      * @param password
-     * @return 
+     * @return Ack
      */
     
     public MessageAck add(String username,String password){
@@ -61,14 +61,14 @@ public class Broker {
         catch (SQLException e){ return new MessageAck ("ERROR",e.getMessage()); }
     }    
     /**
-     * MessageAck remove object
+     * Remove user from database
      * @param username
-     * @return 
+     * @return Ack
      */
     public MessageAck remove(String username){
         try{
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT username from usuarios WHERE username'"+username+"'");
+            ResultSet resultSet = statement.executeQuery("SELECT username FROM usuarios WHERE username='"+username+"'");
             if (resultSet.next()){
                statement.executeUpdate("DELETE FROM autenticaciones WHERE username='"+username+"'"); 
                statement.executeUpdate("DELETE FROM usuarios WHERE username='"+username+"'");
@@ -81,11 +81,11 @@ public class Broker {
     
     }
     /**
-     * MessageAck modify object
+     * Modify user password in database
      * @param username
      * @param password
      * @param newPassword
-     * @return 
+     * @return ack
      */
     public MessageAck modify(String username,String password, String newPassword){
         try{
@@ -101,11 +101,11 @@ public class Broker {
         }catch (SQLException e){ return new MessageAck("Error",e.getMessage());}
     }
     /**
-     * MessageAck authenticate object
+     * Authenticate a user 
      * @param username
      * @param password
      * @param hostIP
-     * @return 
+     * @return Ack
      */
     public MessageAck authenticate(String username,String password,String hostIP){
         try{
@@ -122,8 +122,8 @@ public class Broker {
             }catch (SQLException e) {return new MessageAck("Error",e.getMessage()); }
     }
     /**
-     * Arraylist  with Users storaged in database
-     * @return 
+     * List of users stored in database
+     * @return Arraylist  with Users storaged in database 
      */
     public ArrayList<User> listUsers(){
         try {
@@ -141,9 +141,9 @@ public class Broker {
         }
     }
     /**
-     * Arraylist with Authentications from a specific user 
+     *  List of authentication from a specific user 
      * @param username
-     * @return 
+     * @return Arraylist with Authentications from a specific user 
      */
     public ArrayList<Authentication> listAut(String username){
         try {

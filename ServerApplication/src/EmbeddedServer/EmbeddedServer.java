@@ -23,14 +23,19 @@ import MessageObjects.User;
  * @author Juan
  */
 public class EmbeddedServer {
-    
+    /**
+     * EmbeddedServer Constructor
+     */
     public EmbeddedServer(){
         setProperties();
     }
     
     private Broker broker;
     private String passwordAdmin;
-
+    
+    /**
+     * Sets properties from properties file
+     */
     private void setProperties() {
 
         Properties propiedades = new Properties();
@@ -60,7 +65,13 @@ public class EmbeddedServer {
            }
 
     }
-    
+    /**
+     * Add user in database
+     * @param username
+     * @param password
+     * @param adminPassword
+     * @return Ack
+     */
     public MessageAck add(String username,String password, String adminPassword){
         if (adminPassword.equals(this.passwordAdmin)){
             return broker.add(username, password);
@@ -69,7 +80,12 @@ public class EmbeddedServer {
             return new MessageAck("ERROR","Invalid Admin Password");
         }
     }
-    
+    /**
+     * Remove user from database
+     * @param username
+     * @param adminPassword
+     * @return Ack
+     */
     public MessageAck remove(String username,String adminPassword){
         if (adminPassword.equals(this.passwordAdmin)){
             return broker.remove(username);
@@ -79,10 +95,23 @@ public class EmbeddedServer {
         }       
     }
     
+    /**
+     * Modify a user password in database
+     * @param username
+     * @param password
+     * @param newPassword
+     * @return Ack
+     */
     public MessageAck modify(String username,String password, String newPassword){
         return broker.modify(username, password, newPassword);        
     }
     
+    /**
+     * Authenticate user in database
+     * @param username
+     * @param password
+     * @return Ack
+     */
     public MessageAck authenticate(String username,String password){
         try {
             return broker.authenticate(username, password, InetAddress.getLocalHost().getHostAddress());
@@ -91,7 +120,11 @@ public class EmbeddedServer {
             return null;
         }   
     }
-    
+    /**
+     * List of users storaged in database
+     * @param adminPassword
+     * @return Arraylist of users
+     */
     public ArrayList<User> listUsers(String adminPassword){
         if (adminPassword.equals(this.passwordAdmin)){
             return broker.listUsers();
@@ -100,7 +133,12 @@ public class EmbeddedServer {
             return null;
         }
     }
-    
+    /**
+     * List of authentications from a specific user
+     * @param username
+     * @param adminPassword
+     * @return Arraylist of authentications
+     */
     public ArrayList<Authentication> listAut(String username, String adminPassword){
        if (adminPassword.equals(this.passwordAdmin)){
             return broker.listAut(username);

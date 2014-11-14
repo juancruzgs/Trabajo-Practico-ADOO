@@ -4,24 +4,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Main.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/XMLParser.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandListUsers.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Broker.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/User.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/MessageAck.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandModify.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/XMLServer.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandAuthenticate.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Command.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Receiver.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Authentication.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandAdd.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/EmbeddedServer.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandRemove.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandListAut.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/XMLSender.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/CommandError.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Commands/CommandError.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/MessageObjects/User.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Commands/CommandListAut.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Commands/CommandRemove.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Commands/CommandModify.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/XMLServer/XMLParser.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/XMLServer/Receiver.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/MessageObjects/Authentication.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/EmbeddedServer/EmbeddedServer.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/XMLServer/XMLServer.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Commands/CommandAuthenticate.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/XMLSender/XMLSender.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/MessageObjects/MessageAck.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Database/Broker.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Commands/CommandListUsers.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Commands/Command.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/Commands/CommandAdd.java</file>
         </group>
     </open-files>
 </project-private>
