@@ -13,7 +13,7 @@ import MessageObjects.MessageAck;
 public class CommandRemove extends Command {
     /**
      * 
-     * 
+     *  calls broker with the correspondent parameters and sends the result to the sender
      * 
      */
     public void execute(){

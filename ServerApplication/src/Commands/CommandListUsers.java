@@ -14,7 +14,7 @@ import MessageObjects.User;
 public class CommandListUsers extends Command{
     /**
      * 
-     * 
+     *  calls broker with the correspondent parameters and sends the result to the sender
      * 
   
      */

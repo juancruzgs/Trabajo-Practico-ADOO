@@ -28,9 +28,15 @@ public abstract class Command {
     public ArrayList<String> getParameters() {
         return parameters;
     }
-
+    /**
+        *  An arraylist with correspondant parameters of a correspondant action 
+     */
     protected ArrayList<String> parameters = new ArrayList<String>();
-
+    
+    /**
+     * Adds parameters to the arraylist
+     * @param param 
+     */
     public void addParameter(String param){
         parameters.add(param);
     }    

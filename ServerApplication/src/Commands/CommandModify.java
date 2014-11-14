@@ -13,7 +13,7 @@ import MessageObjects.MessageAck;
 public class CommandModify extends Command{
     /**
      * 
-     * 
+     *  calls broker with the correspondent parameters and sends the result to the sender
      * 
      */
     public void execute(){

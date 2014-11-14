@@ -14,7 +14,7 @@ import MessageObjects.Authentication;
 public class CommandListAut extends Command {
     /**
      * 
-     * 
+     *  calls broker with the correspondent parameters and sends the result to the sender
      * 
   
      */

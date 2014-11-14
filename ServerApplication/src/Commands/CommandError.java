@@ -11,7 +11,7 @@ package Commands;
 public class CommandError extends Command{
     /**
      * 
-     * 
+     * sends the result to the sender
      * 
   
      */

@@ -7,11 +7,13 @@ package Commands;
 import MessageObjects.MessageAck;
 
 /**
- *
+ * Action that authenticate a user in the database
  * @author Juan
  */
 public class CommandAuthenticate extends Command{
-    
+    /*
+     calls broker with the correspondent parameters and sends the result to the sender
+    */
     public void execute(){
       if (!parameters.get(0).equals("") && !parameters.get(1).equals("") && !parameters.get(2).equals("")) {
         MessageAck response = broker.authenticate(this.parameters.get(0),this.parameters.get(1),this.parameters.get(2));
