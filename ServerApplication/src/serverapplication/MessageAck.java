@@ -6,7 +6,7 @@
 package serverapplication;
 
 /**
- *
+ * Acknowledgement message generated from  add,remove,modify or authenticate action 
  * @author Maximiliano
  */
 public class MessageAck {

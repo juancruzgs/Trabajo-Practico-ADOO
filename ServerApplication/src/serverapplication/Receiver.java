@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Thread 
  * @author Juan
  */
 public class Receiver implements Runnable{
@@ -29,7 +29,9 @@ public class Receiver implements Runnable{
     private XMLParser parser = new XMLParser();
     private XMLSender sender = new XMLSender();
     private Broker broker;
-    
+    /**
+     * Starts thread
+     */
     public void run(){
         PrintWriter out = null;
         
