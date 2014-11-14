@@ -10,7 +10,7 @@ package serverapplication;
  */
 public class EmbeddedParser implements Parser{
     
-    public Command parse(String message, String password){
+    public Command parse(String message, String password, String remoteIP){
         return null;
     }
     

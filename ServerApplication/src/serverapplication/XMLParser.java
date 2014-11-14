@@ -20,7 +20,7 @@ import org.xml.sax.InputSource;
  */
 public class XMLParser implements Parser{
     
-    public Command parse(String message, String password){
+    public Command parse(String message, String password, String remoteIP){
         try {
             InputSource is = new InputSource(new StringReader(message));
             org.w3c.dom.Document xmlDoc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
@@ -54,6 +54,7 @@ public class XMLParser implements Parser{
                 command = new CommandAuthenticate();
                 command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
                 command.addParameter((String)xpath.evaluate("/MESSAGE/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter(remoteIP);
             }           
             else
             if ((tipo.equals("LIST-USERS")) && (admPass.equals(password))){

@@ -95,7 +95,7 @@ public class Server {
           out = new PrintWriter(socket.getOutputStream(),true);
           in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
           
-          Command command = parser.parse(in.readLine(),passwordAdmin);
+          Command command = parser.parse(in.readLine(),passwordAdmin,remoteIP);
           command.execute(broker,sender,out);
                   
           //System.out.println(in.readLine());
