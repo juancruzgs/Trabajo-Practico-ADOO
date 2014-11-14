@@ -21,13 +21,14 @@ import java.util.logging.Logger;
  */
 public class Server {
     
-    Broker broker;
-    int port;
-    String passwordAdmin;
-    String remoteIP;
-    AbstractFactory factory;
-    Sender sender;
-    Parser parser;
+    private Broker broker;
+    private int port;
+    private String passwordAdmin;
+    //private String remoteIP;
+    private AbstractFactory factory;
+    private Sender sender;
+    private Parser parser;
+    //private boolean isStopped;
     
     /** 
      * Server Constructor
@@ -35,8 +36,24 @@ public class Server {
     public Server(){
          
       setProperties();
-      waitMessage();
- 
+      
+      ServerSocket servidor = null;
+      Socket socket = null;
+      //PrintWriter out;
+      //BufferedReader in;  
+      //String remoteIP;
+      
+      try{
+          servidor = new ServerSocket(this.port);
+  
+          while (true){
+              socket = servidor.accept();  
+                      
+              new Thread (new Receiver(socket,passwordAdmin,parser,sender,broker)).start();
+          }
+      //waitMessage();
+         }
+      catch (Exception e) { e.printStackTrace(); }      
     }
     /**
      * Sets properties from properties file
@@ -79,29 +96,29 @@ public class Server {
     /**
      * Waits for a Client message
      */
-    private void waitMessage(){
-        
-      ServerSocket servidor = null;
-      Socket socket = null;
-      PrintWriter out;
-      BufferedReader in;    
-      
-      try{
-          servidor = new ServerSocket(this.port);
-          socket = servidor.accept();
-          this.remoteIP = socket.getRemoteSocketAddress().toString();
-          this.remoteIP = this.remoteIP.substring(remoteIP.indexOf("/")+1,remoteIP.indexOf(":"));
-          
-          out = new PrintWriter(socket.getOutputStream(),true);
-          in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-          
-          Command command = parser.parse(in.readLine(),passwordAdmin,remoteIP);
-          command.execute(broker,sender,out);
-                  
-          //System.out.println(in.readLine());
-      }
-      catch (Exception e) { e.printStackTrace(); }        
-    }
+//    private void waitMessage(){
+//        
+//      ServerSocket servidor = null;
+//      Socket socket = null;
+//      PrintWriter out;
+//      BufferedReader in;    
+//      
+//      try{
+//          servidor = new ServerSocket(this.port);
+//          socket = servidor.accept();
+//          this.remoteIP = socket.getRemoteSocketAddress().toString();
+//          this.remoteIP = this.remoteIP.substring(remoteIP.indexOf("/")+1,remoteIP.indexOf(":"));
+//          
+//          out = new PrintWriter(socket.getOutputStream(),true);
+//          in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//          
+//          Command command = parser.parse(in.readLine(),passwordAdmin,remoteIP);
+//          command.execute(broker,sender,out);
+//                  
+//          //System.out.println(in.readLine());
+//      }
+//      catch (Exception e) { e.printStackTrace(); }        
+//    }
     
     /**
      * Creates the suitable sender and parser
@@ -114,7 +131,7 @@ public class Server {
         }
         else
         if (mode.toLowerCase().equals("embedded")) {
-          this.factory = new FactoryEmbedded();
+            this.factory = new FactoryEmbedded();
         }
     }
 
