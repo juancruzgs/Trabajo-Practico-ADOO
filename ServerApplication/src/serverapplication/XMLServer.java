@@ -17,8 +17,6 @@ public class XMLServer {
     private Broker broker;
     private int port;
     private String passwordAdmin;
-    private XMLSender sender = new XMLSender();
-    private XMLParser parser = new XMLParser();
     
     /** 
      * Server Constructor
@@ -54,8 +52,8 @@ public class XMLServer {
             entrada = new FileInputStream("serverConfig.properties");
             propiedades.load(entrada);
 
-            this.broker = Broker.getInstance(propiedades.getProperty("urlconnection"),propiedades.getProperty("userbd"),
-                                propiedades.getProperty("passwordbd"));
+            this.broker = Broker.getInstance(propiedades.getProperty("urlconnection"),propiedades.getProperty("userdb"),
+                                propiedades.getProperty("passworddb"));
 
                                 
             this.passwordAdmin= propiedades.getProperty("passwordadmin");

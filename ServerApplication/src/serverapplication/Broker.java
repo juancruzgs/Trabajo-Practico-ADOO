@@ -19,11 +19,11 @@ public class Broker {
     private static Broker instance;
     private Connection connection; 
     
-    private Broker(String url, String user, String password){
+    private Broker(String url, String userDb, String passwordDb){
         try{
             
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            this.connection = DriverManager.getConnection(url,user,password);
+            this.connection = DriverManager.getConnection(url,userDb,passwordDb);
     
         }
         catch (Exception ex)
@@ -92,7 +92,7 @@ public class Broker {
             }catch (SQLException e) {return new MessageAck("Error",e.getMessage()); }
     }
     
-    public ArrayList listUsers(){
+    public ArrayList<User> listUsers(){
         try {
             Statement statement = connection.createStatement();
             ArrayList<User> usuarios = new ArrayList<User>();
@@ -108,7 +108,7 @@ public class Broker {
         }
     }
     
-    public ArrayList listAut(String username){
+    public ArrayList<Authentication> listAut(String username){
         try {
             Statement statement = connection.createStatement();
             ArrayList<Authentication> autenticaciones = new ArrayList<Authentication>();
