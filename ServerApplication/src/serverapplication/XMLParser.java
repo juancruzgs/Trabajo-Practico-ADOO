@@ -15,7 +15,7 @@ import org.xml.sax.InputSource;
  *
  * @author Juan
  */
-public class XMLParser implements Parser{
+public class XMLParser{
     
     public Command parse(String message, String password, String remoteIP){
         try {

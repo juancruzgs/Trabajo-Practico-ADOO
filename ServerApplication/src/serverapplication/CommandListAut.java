@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class CommandListAut extends Command {
     
-    public void execute(Broker broker, Sender sender, PrintWriter out){
+    public void execute(Broker broker, XMLSender sender, PrintWriter out){
             if (!parameters.get(0).equals("")){
                 ArrayList<Authentication> response = broker.listAut(this.parameters.get(0));
                 sender.sendListAut(response,out);

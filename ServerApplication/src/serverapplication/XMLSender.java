@@ -14,7 +14,7 @@ import java.util.Iterator;
  *
  * @author Juan
  */
-public class XMLSender implements Sender{
+public class XMLSender{
     
     public void sendAck(MessageAck response,PrintWriter out){
         out.println("<ACK STATUS=\""+response.getStatus()+"\"><DESC>"+response.getDescripcion()+"</DESC></ACK>");

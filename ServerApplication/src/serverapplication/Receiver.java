@@ -18,18 +18,16 @@ import java.util.logging.Logger;
  */
 public class Receiver implements Runnable{
 
-    public Receiver(Socket socket, String passwordAdmin, Parser parser, Sender sender, Broker broker) {
+    public Receiver(Socket socket, String passwordAdmin, Broker broker) {
         this.socket = socket;
         this.passwordAdmin = passwordAdmin;
-        this.parser = parser;
-        this.sender = sender;
         this.broker = broker;
     }
     
     private Socket socket;
     private String passwordAdmin;
-    private Parser parser;
-    private Sender sender;
+    private XMLParser parser = new XMLParser();
+    private XMLSender sender = new XMLSender();
     private Broker broker;
     
     public void run(){
@@ -53,6 +51,5 @@ public class Receiver implements Runnable{
         }
         
     }
-    
-    
+     
 }

@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class CommandListUsers extends Command{
     
-    public void execute(Broker broker, Sender sender, PrintWriter out){
+    public void execute(Broker broker, XMLSender sender, PrintWriter out){
        
         ArrayList<User> response = broker.listUsers();
         sender.sendListUsers(response, out);

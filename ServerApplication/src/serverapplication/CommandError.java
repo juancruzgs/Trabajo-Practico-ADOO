@@ -12,7 +12,7 @@ import java.io.PrintWriter;
  */
 public class CommandError extends Command{
     
-    public void execute(Broker broker, Sender sender, PrintWriter out){
+    public void execute(Broker broker, XMLSender sender, PrintWriter out){
         
         sender.sendError("Unknown Error",out);
     }
