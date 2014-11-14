@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author Maximiliano
  */
-public class Usuario {
+public class User {
     
     private String username;
 
@@ -26,7 +26,7 @@ public class Usuario {
     }
     private Timestamp timestamp;
     
-    public Usuario(String username,Timestamp timestamp){
+    public User(String username,Timestamp timestamp){
         this.username=username;
         this.timestamp=timestamp;
     }

@@ -112,10 +112,10 @@ public class Broker {
     public ArrayList listUsers(){
         try {
             Statement statement = connection.createStatement();
-            ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+            ArrayList<User> usuarios = new ArrayList<User>();
             ResultSet resultSet = statement.executeQuery("SELECT username,timestamp FROM usuarios");
             while (resultSet.next()){
-                Usuario usuario = new Usuario(resultSet.getString("username"),resultSet.getTimestamp("timestamp"));
+                User usuario = new User(resultSet.getString("username"),resultSet.getTimestamp("timestamp"));
                 usuarios.add(usuario);
               }
             return usuarios;
@@ -128,10 +128,10 @@ public class Broker {
     public ArrayList listAut(String nombreUsuario){
         try {
             Statement statement = connection.createStatement();
-            ArrayList<Autenticacion> autenticaciones = new ArrayList<Autenticacion>();
+            ArrayList<Authentication> autenticaciones = new ArrayList<Authentication>();
             ResultSet resultSet = statement.executeQuery("SELECT host,timestamp FROM autenticaciones WHERE username='"+nombreUsuario+"'");
             while (resultSet.next()){
-                Autenticacion autenticacion = new Autenticacion (resultSet.getString("host"),resultSet.getTimestamp("timestamp"));
+                Authentication autenticacion = new Authentication (resultSet.getString("host"),resultSet.getTimestamp("timestamp"));
                 autenticaciones.add(autenticacion);
             }
             return autenticaciones;

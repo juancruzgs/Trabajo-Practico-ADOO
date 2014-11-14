@@ -12,14 +12,14 @@ import java.util.Date;
  *
  * @author Maximiliano
  */
-public class Autenticacion {
+public class Authentication {
 
    
     private String host;
     private Timestamp timestamp;
     
     
-    public Autenticacion(String host, Timestamp timestamp) {
+    public Authentication(String host, Timestamp timestamp) {
         this.host = host;
         this.timestamp = timestamp;
     }

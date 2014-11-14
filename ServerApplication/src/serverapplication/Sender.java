@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public interface Sender {
     
     public void sendAck(MessageAck response,PrintWriter out);
-    public void sendListUsers(ArrayList<Usuario> lista,PrintWriter out );
-    public void sendListAut(ArrayList<Autenticacion> lista,PrintWriter out);
+    public void sendListUsers(ArrayList<User> lista,PrintWriter out );
+    public void sendListAut(ArrayList<Authentication> lista,PrintWriter out);
     public void sendError(String error,PrintWriter out);
     
     

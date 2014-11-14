@@ -18,7 +18,7 @@ public class CommandListUsers extends Command{
     
     public void execute(Broker broker, Sender sender, PrintWriter out){
        
-        ArrayList<Usuario> response = broker.listUsers();
+        ArrayList<User> response = broker.listUsers();
         sender.sendListUsers(response, out);
     }
 }

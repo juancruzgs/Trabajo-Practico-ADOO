@@ -22,24 +22,24 @@ public class XMLSender implements Sender{
         
     }
     
-    public void sendListUsers(ArrayList<Usuario> lista,PrintWriter out ){
+    public void sendListUsers(ArrayList<User> lista,PrintWriter out ){
         String st = "<LIST-USERS>";
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Iterator iterator = lista.iterator();
         while (iterator.hasNext()){
-            Usuario usuario = (Usuario)iterator.next();
+            User usuario = (User)iterator.next();
             st = st+ "<USER><USERNAME>"+usuario.getUsername()+"</USERNAME><TIMESTAMP>"
                     +formatter.format(usuario.getTimestamp())+"</TIMESTAMP></USER>";
         }
         st = st + "</LIST-USERS>";
         out.println(st);
     }
-    public void sendListAut(ArrayList<Autenticacion>lista,PrintWriter out){
+    public void sendListAut(ArrayList<Authentication>lista,PrintWriter out){
         String st = "<LIST-AUT>";
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Iterator iterator = lista.iterator();
         while (iterator.hasNext()){
-            Autenticacion autenticacion = (Autenticacion)iterator.next();
+            Authentication autenticacion = (Authentication)iterator.next();
             st= st +"<AUT><HOST>"+autenticacion.getHost()+"</HOST><TIMESTAMP>"
                     +formatter.format(autenticacion.getTimestamp())+"</TIMESTAMP></USER>";
         }
