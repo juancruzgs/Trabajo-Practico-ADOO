@@ -4,10 +4,17 @@
  */
 package serverapplication;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 /**
  *
  * @author Juan
  */
-public class EmbeddedSender extends Sender{
+public class EmbeddedSender implements Sender{
+     
+    public void sendAck(MessageAck response,PrintWriter out){}
+    public void sendListUsers(ArrayList< Usuario> lista,PrintWriter out ){}
+    public void sendListAut(ArrayList<Autenticacion>lista,PrintWriter out){}
     
 }

@@ -4,10 +4,19 @@
  */
 package serverapplication;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 /**
  *
  * @author Juan
  */
-public class Sender {
+public interface Sender {
+    
+    public void sendAck(MessageAck response,PrintWriter out);
+    public void sendListUsers(ArrayList< Usuario> lista,PrintWriter out );
+    public void sendListAut(ArrayList<Autenticacion>lista,PrintWriter out);
+    
+    
     
 }
