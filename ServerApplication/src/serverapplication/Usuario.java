@@ -5,6 +5,8 @@
  */
 package serverapplication;
 
+
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -15,16 +17,16 @@ public class Usuario {
     
     private String username;
 
-    public Date getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
     public String getUsername() {
         return username;
     }
-    private Date timestamp;
+    private Timestamp timestamp;
     
-    public Usuario(String username,Date timestamp){
+    public Usuario(String username,Timestamp timestamp){
         this.username=username;
         this.timestamp=timestamp;
     }

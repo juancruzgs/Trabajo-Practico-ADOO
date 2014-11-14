@@ -5,6 +5,7 @@
  */
 package serverapplication;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -15,10 +16,10 @@ public class Autenticacion {
 
    
     private String host;
-    private Date timestamp;
+    private Timestamp timestamp;
     
     
-    public Autenticacion(String host, Date timestamp) {
+    public Autenticacion(String host, Timestamp timestamp) {
         this.host = host;
         this.timestamp = timestamp;
     }
@@ -39,14 +40,14 @@ public class Autenticacion {
     /**
      * @return the timestamp
      */
-    public Date getTimestamp() {
+    public Timestamp getTimestamp() {
         return timestamp;
     }
 
     /**
      * @param timestamp the timestamp to set
      */
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
     }
 }
