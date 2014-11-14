@@ -10,7 +10,7 @@ package serverapplication;
  */
 public interface Parser {
     
-    public Command parse(String message, String password);        
+    public Command parse(String message, String password, String remoteIP);        
             
     //public Command getCommand
     

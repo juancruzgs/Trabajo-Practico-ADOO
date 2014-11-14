@@ -17,9 +17,12 @@ import java.util.logging.Logger;
 public class CommandListAut extends Command {
     
     public void execute(Broker broker, Sender sender, PrintWriter out){
-       
-            ArrayList<Autenticacion> response = broker.listAut(this.parameters.get(0));
-            sender.sendListAut(response,out);
+            if (!parameters.get(0).equals("")){
+                ArrayList<Autenticacion> response = broker.listAut(this.parameters.get(0));
+                sender.sendListAut(response,out);
+            }
+            else
+                sender.sendError("Parsing Error", out);
         
     }
     
