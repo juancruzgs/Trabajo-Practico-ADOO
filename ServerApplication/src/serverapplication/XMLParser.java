@@ -12,12 +12,18 @@ import javax.xml.xpath.XPathFactory;
 import org.xml.sax.InputSource;
 
 /**
- *
+ * Parse a XML documment
  * @author Juan
  */
 public class XMLParser implements Parser{
-    
-    public Command parse(String message, String password, String remoteIP){
+    /**
+     * Parse a XML file 
+     * @param message action that client wants to be done
+     * @param passwordAdmin p
+     * @param remoteIP ip from the client
+     * @return 
+     */
+    public Command parse(String message, String passwordAdmin, String remoteIP){
         try {
             InputSource is = new InputSource(new StringReader(message));
             org.w3c.dom.Document xmlDoc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
@@ -28,14 +34,14 @@ public class XMLParser implements Parser{
             
             String admPass = (String)xpath.evaluate("/MESSAGE/ADM-PASS",xmlDoc.getDocumentElement(),XPathConstants.STRING);            
             
-            if ((tipo.equals("ADD")) && (admPass.equals(password))){
+            if ((tipo.equals("ADD")) && (admPass.equals(passwordAdmin))){
                 command = new CommandAdd();
                 command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
                 command.addParameter((String)xpath.evaluate("/MESSAGE/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
 
             }
             else
-            if ((tipo.equals("REMOVE")) && (admPass.equals(password))){
+            if ((tipo.equals("REMOVE")) && (admPass.equals(passwordAdmin))){
                 command = new CommandRemove();
                 command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));               
             }
@@ -54,11 +60,11 @@ public class XMLParser implements Parser{
                 command.addParameter(remoteIP);
             }           
             else
-            if ((tipo.equals("LIST-USERS")) && (admPass.equals(password))){
+            if ((tipo.equals("LIST-USERS")) && (admPass.equals(passwordAdmin))){
                 command = new CommandListUsers();
             }         
             else
-            if ((tipo.equals("LIST-AUT"))  && (admPass.equals(password))){
+            if ((tipo.equals("LIST-AUT"))  && (admPass.equals(passwordAdmin))){
                 command = new CommandListAut();
                 command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
             }     
