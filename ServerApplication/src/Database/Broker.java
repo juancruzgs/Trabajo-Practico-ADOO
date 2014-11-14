@@ -12,15 +12,17 @@ import MessageObjects.Authentication;
 import MessageObjects.MessageAck;
 import MessageObjects.User;
 /**
- *
+ * Interactor between xml server,embedded server and database, manage all add,modify,remove,authenticate,list users and list aut actions
  * @author Juan
  */
 public class Broker {
+    
+    private static Broker instance;
+    private Connection connection; 
+    
     /**
      * Broker Creator
      */
-    private static Broker instance;
-    private Connection connection; 
     
     private Broker(String url, String userDb, String passwordDb){
         try{
@@ -32,6 +34,13 @@ public class Broker {
         catch (Exception ex)
         { ex.printStackTrace(); }
     }
+    /**
+     * MessageAck add object
+     * 
+     * @param username 
+     * @param password
+     * @return 
+     */
     
     public MessageAck add(String username,String password){
         try{
@@ -51,7 +60,11 @@ public class Broker {
         }
         catch (SQLException e){ return new MessageAck ("ERROR",e.getMessage()); }
     }    
-    
+    /**
+     * MessageAck remove object
+     * @param username
+     * @return 
+     */
     public MessageAck remove(String username){
         try{
             Statement statement = connection.createStatement();
@@ -67,7 +80,13 @@ public class Broker {
         }catch (SQLException e) { return new MessageAck ("ERROR",e.getMessage());}
     
     }
-    
+    /**
+     * MessageAck modify object
+     * @param username
+     * @param password
+     * @param newPassword
+     * @return 
+     */
     public MessageAck modify(String username,String password, String newPassword){
         try{
              Statement statement = connection.createStatement();
@@ -81,7 +100,13 @@ public class Broker {
              }
         }catch (SQLException e){ return new MessageAck("Error",e.getMessage());}
     }
-    
+    /**
+     * MessageAck authenticate object
+     * @param username
+     * @param password
+     * @param hostIP
+     * @return 
+     */
     public MessageAck authenticate(String username,String password,String hostIP){
         try{
             
@@ -96,7 +121,10 @@ public class Broker {
                 }
             }catch (SQLException e) {return new MessageAck("Error",e.getMessage()); }
     }
-    
+    /**
+     * Arraylist  with Users storaged in database
+     * @return 
+     */
     public ArrayList<User> listUsers(){
         try {
             Statement statement = connection.createStatement();
@@ -112,7 +140,11 @@ public class Broker {
             return null;
         }
     }
-    
+    /**
+     * Arraylist with Authentications from a specific user 
+     * @param username
+     * @return 
+     */
     public ArrayList<Authentication> listAut(String username){
         try {
             Statement statement = connection.createStatement();
@@ -128,6 +160,13 @@ public class Broker {
             return null;
         }
     }
+    /**
+     *  Singleton 
+     * @param url 
+     * @param user 
+     * @param password
+     * @return 
+     */
     public static Broker getInstance(String url,String user,String password){   
         if (instance == null){
             instance = new Broker(url,user, password);
