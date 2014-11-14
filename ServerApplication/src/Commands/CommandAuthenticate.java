@@ -4,9 +4,6 @@
  */
 package Commands;
 
-import Database.Broker;
-import XMLServer.XMLSender;
-import java.io.PrintWriter;
 import MessageObjects.MessageAck;
 
 /**
@@ -15,13 +12,13 @@ import MessageObjects.MessageAck;
  */
 public class CommandAuthenticate extends Command{
     
-    public void execute(Broker broker, XMLSender sender, PrintWriter out){
+    public void execute(){
       if (!parameters.get(0).equals("") && !parameters.get(1).equals("") && !parameters.get(2).equals("")) {
         MessageAck response = broker.authenticate(this.parameters.get(0),this.parameters.get(1),this.parameters.get(2));
-        sender.sendAck(response,out);
+        sender.sendAck(response);
       }
       else
-        sender.sendError("Parsing Error", out);
+        sender.sendError("Parsing Error");
     }
     
 }

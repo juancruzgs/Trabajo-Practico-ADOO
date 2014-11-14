@@ -4,6 +4,7 @@
  */
 package XMLServer;
 
+import XMLSender.XMLSender;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,22 +29,31 @@ public class Receiver implements Runnable{
     
     private Socket socket;
     private String passwordAdmin;
-    private XMLParser parser = new XMLParser();
-    private XMLSender sender = new XMLSender();
     private Broker broker;
     /**
      * Starts thread
      */
     public void run(){
         PrintWriter out = null;
+        XMLSender sender = null;
         
         String remoteIP = socket.getRemoteSocketAddress().toString();
         remoteIP = remoteIP.substring(remoteIP.indexOf("/")+1,remoteIP.indexOf(":"));
+        
+        XMLParser parser = new XMLParser(passwordAdmin,remoteIP);
+       
         try {
+            
             out = new PrintWriter(socket.getOutputStream(),true);
+            sender = new XMLSender(out);
+            
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            Command command = parser.parse(in.readLine(),passwordAdmin,remoteIP);
-            command.execute(broker,sender,out);
+            
+            Command command = parser.parse(in.readLine());
+            
+            command.setBroker(broker);
+            command.setSender(sender);
+            command.execute();
             
             out.close();
             in.close();

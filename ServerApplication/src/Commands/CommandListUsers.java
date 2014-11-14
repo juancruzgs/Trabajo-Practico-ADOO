@@ -4,9 +4,6 @@
  */
 package Commands;
 
-import Database.Broker;
-import XMLServer.XMLSender;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import MessageObjects.User;
 
@@ -17,14 +14,13 @@ import MessageObjects.User;
 public class CommandListUsers extends Command{
     /**
      * 
-     * @param broker Intermediate between database and server application 
-     * @param sender Create a XML and sent it to the client with the response 
-     * @param out    Response to the client
+     * 
+     * 
   
      */
-    public void execute(Broker broker, XMLSender sender, PrintWriter out){
+    public void execute(){
        
         ArrayList<User> response = broker.listUsers();
-        sender.sendListUsers(response, out);
+        sender.sendListUsers(response);
     }
 }

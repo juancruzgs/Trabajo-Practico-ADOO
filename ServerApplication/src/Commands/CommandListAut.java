@@ -4,9 +4,6 @@
  */
 package Commands;
 
-import Database.Broker;
-import XMLServer.XMLSender;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import MessageObjects.Authentication;
 
@@ -17,18 +14,17 @@ import MessageObjects.Authentication;
 public class CommandListAut extends Command {
     /**
      * 
-     * @param broker Intermediate between database and server application 
-     * @param sender Create a XML and sent it to the client with the response 
-     * @param out    Response to the client
+     * 
+     * 
   
      */
-    public void execute(Broker broker, XMLSender sender, PrintWriter out){
+    public void execute(){
             if (!parameters.get(0).equals("")){
                 ArrayList<Authentication> response = broker.listAut(this.parameters.get(0));
-                sender.sendListAut(response,out);
+                sender.sendListAut(response);
             }
             else
-                sender.sendError("Parsing Error", out);
+                sender.sendError("Parsing Error");
         
     }
     

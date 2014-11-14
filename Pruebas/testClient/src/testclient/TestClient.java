@@ -21,7 +21,7 @@ public class TestClient {
         BufferedReader in;
         
         try{
-            Socket socket = new Socket("192.168.0.14",3307);
+            Socket socket = new Socket("localhost",3307);
             out = new PrintWriter(socket.getOutputStream(),true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             

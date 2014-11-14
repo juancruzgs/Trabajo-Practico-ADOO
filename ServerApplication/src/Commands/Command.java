@@ -5,8 +5,7 @@
 package Commands;
 
 import Database.Broker;
-import XMLServer.XMLSender;
-import java.io.PrintWriter;
+import XMLSender.XMLSender;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +13,17 @@ import java.util.ArrayList;
  * @author Juan
  */
 public abstract class Command {
+    
+    protected Broker broker;
+
+    public void setBroker(Broker broker) {
+        this.broker = broker;
+    }
+
+    public void setSender(XMLSender sender) {
+        this.sender = sender;
+    }
+    protected XMLSender sender;
 
     public ArrayList<String> getParameters() {
         return parameters;
@@ -25,5 +35,5 @@ public abstract class Command {
         parameters.add(param);
     }    
     
-    public abstract void execute(Broker broker, XMLSender sender, PrintWriter out);
+    public abstract void execute();
 }

@@ -25,6 +25,14 @@ import Commands.CommandRemove;
  */
 
 public class XMLParser{
+    
+    private String passwordAdmin;
+    private String remoteIP;
+
+    public XMLParser(String passwordAdmin, String remoteIP) {
+        this.passwordAdmin = passwordAdmin;
+        this.remoteIP = remoteIP;
+    }
     /**
      * Parse a XML file 
      * @param message action that client wants to be done
@@ -32,7 +40,7 @@ public class XMLParser{
      * @param remoteIP ip from the client
      * @return 
      */
-    public Command parse(String message, String passwordAdmin, String remoteIP){
+    public Command parse(String message){
         try {
             InputSource is = new InputSource(new StringReader(message));
             org.w3c.dom.Document xmlDoc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
