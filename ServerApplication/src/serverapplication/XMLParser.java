@@ -29,31 +29,31 @@ public class XMLParser implements Parser{
             String tipo = (String)xpath.evaluate("@TYPE",xmlDoc.getDocumentElement(),XPathConstants.STRING);
             Command command;
             
-            String admPass = (String)xpath.evaluate("/ADM-PASS",xmlDoc.getDocumentElement(),XPathConstants.STRING);            
+            String admPass = (String)xpath.evaluate("/MESSAGE/ADM-PASS",xmlDoc.getDocumentElement(),XPathConstants.STRING);            
             
             if ((tipo.equals("ADD")) && (admPass.equals(password))){
                 command = new CommandAdd();
-                command.addParameter((String)xpath.evaluate("/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
-                command.addParameter((String)xpath.evaluate("/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/MESSAGE/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
 
             }
             else
             if ((tipo.equals("REMOVE")) && (admPass.equals(password))){
                 command = new CommandRemove();
-                command.addParameter((String)xpath.evaluate("/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));               
+                command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));               
             }
             else
             if (tipo.equals("MODIFY")){
                 command = new CommandModify();
-                command.addParameter((String)xpath.evaluate("/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
-                command.addParameter((String)xpath.evaluate("/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
-                command.addParameter((String)xpath.evaluate("/NEW-PASS",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/MESSAGE/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/MESSAGE/NEW-PASS",xmlDoc.getDocumentElement(),XPathConstants.STRING));
             }
             else
             if (tipo.equals("AUTHENTICATE")){
                 command = new CommandAuthenticate();
-                command.addParameter((String)xpath.evaluate("/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
-                command.addParameter((String)xpath.evaluate("/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/MESSAGE/PASSWORD",xmlDoc.getDocumentElement(),XPathConstants.STRING));
             }           
             else
             if ((tipo.equals("LIST-USERS")) && (admPass.equals(password))){
@@ -62,7 +62,7 @@ public class XMLParser implements Parser{
             else
             if ((tipo.equals("LIST-AUT"))  && (admPass.equals(password))){
                 command = new CommandListAut();
-                command.addParameter((String)xpath.evaluate("/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
+                command.addParameter((String)xpath.evaluate("/MESSAGE/USERNAME",xmlDoc.getDocumentElement(),XPathConstants.STRING));
             }     
             else
                 command = new CommandError();

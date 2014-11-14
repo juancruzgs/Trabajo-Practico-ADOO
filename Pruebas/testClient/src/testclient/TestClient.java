@@ -25,10 +25,12 @@ public class TestClient {
             out = new PrintWriter(socket.getOutputStream(),true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             
-            while (true){
-            out.println("<MESSAGE TYPE=\"REMOVE\"><USERNAME>juan</USERNAME><PASSWORD>123456</PASSWORD></MESSAGE>");
-            }
-            //System.out.println(in.readLine());
+            //while (true){
+            //out.println("<MESSAGE TYPE=\"REMOVE\"><USERNAME>juan</USERNAME><ADM-PASS>adminadoo</ADM-PASS></MESSAGE>");
+            out.println("<MESSAGE TYPE=\"ADD\"><USERNAME>juan</USERNAME><PASSWORD>juan123</PASSWORD><ADM-PASS>adminadoo</ADM-PASS></MESSAGE>");
+            //}
+            
+            System.out.println(in.readLine());
         }
         catch (Exception e){ e.printStackTrace(); }
     }
