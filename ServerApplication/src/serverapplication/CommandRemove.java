@@ -15,6 +15,8 @@ public class CommandRemove extends Command {
     public void execute(Broker broker, Sender sender, PrintWriter out){
         
         MessageAck response = broker.remove(this.parameters.get(0));
+        sender.sendAck(response,out);
+
         
     }
     

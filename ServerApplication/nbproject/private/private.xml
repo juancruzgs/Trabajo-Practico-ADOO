@@ -1,17 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Autenticacion.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/EmbeddedSender.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Main.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Command.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Sender.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/XMLParser.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Receiver.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Broker.java</file>
-            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/MessageAck.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Server.java</file>
             <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Usuario.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/EmbeddedParser.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/XMLSender.java</file>
+            <file>file:/C:/Users/Maximiliano/Documents/GitHub/Trabajo-Practico-ADOO/ServerApplication/src/serverapplication/Parser.java</file>
         </group>
     </open-files>
 </project-private>

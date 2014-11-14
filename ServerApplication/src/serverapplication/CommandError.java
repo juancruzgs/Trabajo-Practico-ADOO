@@ -14,7 +14,7 @@ public class CommandError extends Command{
     
     public void execute(Broker broker, Sender sender, PrintWriter out){
         
-        //sender.sendError("Unknown Error");
+        sender.sendError("Unknown Error",out);
     }
     
 }

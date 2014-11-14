@@ -61,6 +61,8 @@ public class Server {
    
             //Crea el sender y el parser
             createFactory(propiedades.getProperty("mode"));
+            this.sender = factory.createSender();
+            this.parser = factory.createParser();
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -107,13 +109,12 @@ public class Server {
      */
     private void createFactory(String mode){
         if (mode.toLowerCase().equals("xml")) {
-             this.sender = new XMLSender();
-             this.parser = new XMLParser();
+             this.factory = new FactoryXML();
+             
         }
         else
         if (mode.toLowerCase().equals("embedded")) {
-             this.sender = new EmbeddedSender();
-             this.parser = new EmbeddedParser();
+          this.factory = new FactoryEmbedded();
         }
     }
 
