@@ -12,12 +12,12 @@ package serverapplication;
 public class MessageAck {
     
     private String status;
-    private String descripcion;
+    private String description;
     
     
-    public MessageAck(String status,String descripcion){
+    public MessageAck(String status,String description){
         this.status= status;
-        this.descripcion=descripcion;
+        this.description=description;
     
     }
     /**
@@ -37,15 +37,15 @@ public class MessageAck {
     /**
      * @return the descripcion
      */
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
     /**
      * @param descripcion the descripcion to set
      */
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
     
     

@@ -14,14 +14,16 @@ import java.util.Iterator;
  * Response to a XML message
  * @author Juan
  */
-public class XMLSender implements Sender{
-    /**
+
+public class XMLSender{
+        /**
      * Sends an acknowledgment message.It could be ok message or error message
      * @param response Response to add,modify,remove or authenticate messages
      * @param out Response to the client
      */
+
     public void sendAck(MessageAck response,PrintWriter out){
-        out.println("<ACK STATUS=\""+response.getStatus()+"\"><DESC>"+response.getDescripcion()+"</DESC></ACK>");
+        out.println("<ACK STATUS=\""+response.getStatus()+"\"><DESC>"+response.getDescription()+"</DESC></ACK>");
         
         
     }

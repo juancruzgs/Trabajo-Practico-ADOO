@@ -15,7 +15,8 @@ import org.xml.sax.InputSource;
  * Parse a XML documment
  * @author Juan
  */
-public class XMLParser implements Parser{
+
+public class XMLParser{
     /**
      * Parse a XML file 
      * @param message action that client wants to be done

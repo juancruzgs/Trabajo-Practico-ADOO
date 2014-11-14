@@ -12,32 +12,29 @@ import java.net.*;
  *
  * @author Juan 
  */
-public class Server {
+public class XMLServer {
     
     private Broker broker;
     private int port;
     private String passwordAdmin;
-    private AbstractFactory factory;
-    private Sender sender;
-    private Parser parser;
     
     /** 
      * Server Constructor
      */
-    public Server(){
+    public XMLServer(){
          
       setProperties();
       
-      ServerSocket servidor = null;
+      ServerSocket server = null;
       Socket socket = null;
       
       try{
-          servidor = new ServerSocket(this.port);
+          server = new ServerSocket(this.port);
   
           while (true){
-              socket = servidor.accept();  
+              socket = server.accept();  
                       
-              new Thread (new Receiver(socket,passwordAdmin,parser,sender,broker)).start();
+              new Thread (new Receiver(socket,passwordAdmin,broker)).start();
           }
     
          }
@@ -53,21 +50,15 @@ public class Server {
         
         try {
             entrada = new FileInputStream("serverConfig.properties");
-            // cargamos el archivo de propiedades
             propiedades.load(entrada);
-            // obtenemos las propiedades y las almacenamos
 
-            this.broker = Broker.getInstance(propiedades.getProperty("urlconnection"),propiedades.getProperty("userbd"),
-                                propiedades.getProperty("passwordbd"));
+            this.broker = Broker.getInstance(propiedades.getProperty("urlconnection"),propiedades.getProperty("userdb"),
+                                propiedades.getProperty("passworddb"));
 
                                 
             this.passwordAdmin= propiedades.getProperty("passwordadmin");
             this.port=Integer.parseInt(propiedades.getProperty("port"));
    
-            //Crea el sender y el parser
-            createFactory(propiedades.getProperty("mode"));
-            this.sender = factory.createSender();
-            this.parser = factory.createParser();
 
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -82,20 +73,4 @@ public class Server {
            }
     }
 
-    /**
-     * Creates the suitable sender and parser
-     * @param mode XML or Embedded
-     */
-    private void createFactory(String mode){
-        if (mode.toLowerCase().equals("xml")) {
-             this.factory = new FactoryXML();
-             
-        }
-        else
-        if (mode.toLowerCase().equals("embedded")) {
-            this.factory = new FactoryEmbedded();
-        }
-    }
-
  }
-

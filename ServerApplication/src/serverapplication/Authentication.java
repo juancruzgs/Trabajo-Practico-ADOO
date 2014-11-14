@@ -6,7 +6,6 @@
 package serverapplication;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 /**
  *

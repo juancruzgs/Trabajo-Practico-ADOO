@@ -23,5 +23,5 @@ public abstract class Command {
         parameters.add(param);
     }    
     
-    public abstract void execute(Broker broker, Sender sender, PrintWriter out);
+    public abstract void execute(Broker broker, XMLSender sender, PrintWriter out);
 }
