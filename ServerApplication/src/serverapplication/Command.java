@@ -4,6 +4,7 @@
  */
 package serverapplication;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -22,5 +23,5 @@ public abstract class Command {
         parameters.add(param);
     }    
     
-    public abstract void execute(Broker broker, Sender sender);
+    public abstract void execute(Broker broker, Sender sender, PrintWriter out);
 }
