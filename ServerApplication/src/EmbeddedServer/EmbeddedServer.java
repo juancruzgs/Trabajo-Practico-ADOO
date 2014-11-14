@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package serverapplication;
+package EmbeddedServer;
 
+import Database.Broker;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import MessageObjects.Authentication;
+import MessageObjects.MessageAck;
+import MessageObjects.User;
 
 /**
  *

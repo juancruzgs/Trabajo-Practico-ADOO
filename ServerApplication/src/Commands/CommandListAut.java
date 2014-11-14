@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package serverapplication;
+package Commands;
 
+import Database.Broker;
+import XMLServer.XMLSender;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import MessageObjects.Authentication;
 
 /**
  * Action that list all the authentications from a specific user 

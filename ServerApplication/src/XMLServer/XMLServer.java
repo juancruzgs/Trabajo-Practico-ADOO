@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package serverapplication;
+package XMLServer;
 
 import java.util.Properties;
 import java.io.*;
 import java.net.*;
+import Database.Broker;
 
 /**
  *
@@ -18,6 +19,15 @@ public class XMLServer {
     private int port;
     private String passwordAdmin;
     
+    /**
+    * @param args the command line arguments
+    */
+    public static void main(String[] args) {
+        // TODO code application logic here
+            
+        XMLServer server = new XMLServer();
+        
+    }
     /** 
      * Server Constructor
      */

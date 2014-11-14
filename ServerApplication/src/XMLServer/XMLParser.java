@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package serverapplication;
+package XMLServer;
 
 import java.io.StringReader;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -10,6 +10,14 @@ import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
 import org.xml.sax.InputSource;
+import Commands.Command;
+import Commands.CommandAdd;
+import Commands.CommandAuthenticate;
+import Commands.CommandError;
+import Commands.CommandListAut;
+import Commands.CommandListUsers;
+import Commands.CommandModify;
+import Commands.CommandRemove;
 
 /**
  * Parse a XML documment
