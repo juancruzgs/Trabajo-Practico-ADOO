@@ -58,7 +58,7 @@ public class XMLSender{
      * @param list Authentications from a specific user
      * @param out Response to the client 
      */
-    public void sendListAut(ArrayList<Authentication>list){
+    public void sendListAut(ArrayList<Authentication> list){
         String st = "<LIST-AUT>";
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Iterator iterator = list.iterator();
