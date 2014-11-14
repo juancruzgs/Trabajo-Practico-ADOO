@@ -4,16 +4,9 @@
  */
 package serverapplication;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.SQLException;
 import java.util.Properties;
 import java.io.*;
 import java.net.*;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,11 +17,9 @@ public class Server {
     private Broker broker;
     private int port;
     private String passwordAdmin;
-    //private String remoteIP;
     private AbstractFactory factory;
     private Sender sender;
     private Parser parser;
-    //private boolean isStopped;
     
     /** 
      * Server Constructor
@@ -39,9 +30,6 @@ public class Server {
       
       ServerSocket servidor = null;
       Socket socket = null;
-      //PrintWriter out;
-      //BufferedReader in;  
-      //String remoteIP;
       
       try{
           servidor = new ServerSocket(this.port);
@@ -51,7 +39,7 @@ public class Server {
                       
               new Thread (new Receiver(socket,passwordAdmin,parser,sender,broker)).start();
           }
-      //waitMessage();
+    
          }
       catch (Exception e) { e.printStackTrace(); }      
     }
@@ -93,33 +81,7 @@ public class Server {
              }
            }
     }
-    /**
-     * Waits for a Client message
-     */
-//    private void waitMessage(){
-//        
-//      ServerSocket servidor = null;
-//      Socket socket = null;
-//      PrintWriter out;
-//      BufferedReader in;    
-//      
-//      try{
-//          servidor = new ServerSocket(this.port);
-//          socket = servidor.accept();
-//          this.remoteIP = socket.getRemoteSocketAddress().toString();
-//          this.remoteIP = this.remoteIP.substring(remoteIP.indexOf("/")+1,remoteIP.indexOf(":"));
-//          
-//          out = new PrintWriter(socket.getOutputStream(),true);
-//          in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-//          
-//          Command command = parser.parse(in.readLine(),passwordAdmin,remoteIP);
-//          command.execute(broker,sender,out);
-//                  
-//          //System.out.println(in.readLine());
-//      }
-//      catch (Exception e) { e.printStackTrace(); }        
-//    }
-    
+
     /**
      * Creates the suitable sender and parser
      * @param mode XML or Embedded
