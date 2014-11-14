@@ -53,7 +53,7 @@ public class Broker {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT username FROM usuarios WHERE username='"+nombreUsuario+"'");
         if (resultSet.next()){
-            return new MessageAck("Error","User already exists");
+            return new MessageAck("ERROR","User already exists");
         }
         else{
             int resultSet1 = statement.executeUpdate("INSERT INTO usuarios (username,password,timestamp) VALUES ('"+nombreUsuario+"','"
@@ -63,7 +63,7 @@ public class Broker {
             
         }
         }
-        catch (SQLException e){ return new MessageAck ("Error",e.getMessage()); }
+        catch (SQLException e){ return new MessageAck ("ERROR",e.getMessage()); }
     }    
     
     public MessageAck remove(String nombreUsuario){
@@ -71,12 +71,12 @@ public class Broker {
             Statement statement = connection.createStatement();
             int resultSet = statement.executeUpdate("DELETE FROM usuarios WHERE username='"+nombreUsuario+"'");
             if  (resultSet==0){
-                 return new MessageAck("Error","User does not exists");
+                 return new MessageAck("ERROR","User does not exists");
             }
             else{
                 return new MessageAck("OK","");
             }
-        }catch (SQLException e) { return new MessageAck ("Error",e.getMessage());}
+        }catch (SQLException e) { return new MessageAck ("ERROR",e.getMessage());}
     
     }
     
@@ -89,7 +89,7 @@ public class Broker {
                   return new MessageAck("OK","");
              }
              else{
-                     return new MessageAck("Error","Invalid username or password");
+                     return new MessageAck("ERROR","Invalid username or password");
              }
         }catch (SQLException e){ return new MessageAck("Error",e.getMessage());}
     }
@@ -104,7 +104,7 @@ public class Broker {
                 return new MessageAck("OK","");
             }
                 else{
-                    return new MessageAck("Error","Could not authenticate due to invalid username or password");
+                    return new MessageAck("ERROR","Could not authenticate due to invalid username or password");
                 }
             }catch (SQLException e) {return new MessageAck("Error",e.getMessage()); }
     }
