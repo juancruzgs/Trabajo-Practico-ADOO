@@ -5,6 +5,8 @@
 package serverapplication;
 
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -22,13 +24,35 @@ public class XMLSender implements Sender{
     
     public void sendListUsers(ArrayList<Usuario> lista,PrintWriter out ){
         String st = "<LIST-USERS>";
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Iterator iterator = lista.iterator();
         while (iterator.hasNext()){
             Usuario usuario = (Usuario)iterator.next();
-            st = st+ "<USER><USERNAME>"+usuario.getUsername()+"</USERNAME><TIMESTAMP>"+"formato"+"</TIMESTAMP></USER>";
+            st = st+ "<USER><USERNAME>"+usuario.getUsername()+"</USERNAME><TIMESTAMP>"
+                    +formatter.format(usuario.getTimestamp())+"</TIMESTAMP></USER>";
         }
         st = st + "</LIST-USERS>";
         out.println(st);
     }
-    public void sendListAut(ArrayList<Autenticacion>lista,PrintWriter out){}   
+    public void sendListAut(ArrayList<Autenticacion>lista,PrintWriter out){
+        String st = "<LIST-AUT>";
+        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Iterator iterator = lista.iterator();
+        while (iterator.hasNext()){
+            Autenticacion autenticacion = (Autenticacion)iterator.next();
+            st= st +"<AUT><HOST>"+autenticacion.getHost()+"</HOST><TIMESTAMP>"
+                    +formatter.format(autenticacion.getTimestamp())+"</TIMESTAMP></USER>";
+        }
+        st= st + "</LIST-AUT>";
+        out.println(st);
+    
+    }   
+    
+    public void sendError(String error,PrintWriter out){
+       
+        out.println("<ERROR>"+error+"<ERROR>");
+       
+    }
+
 }
+

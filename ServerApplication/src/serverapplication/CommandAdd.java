@@ -15,7 +15,7 @@ public class CommandAdd extends Command {
     public void execute(Broker broker, Sender sender, PrintWriter out){
                
         MessageAck response = broker.add(this.parameters.get(0),this.parameters.get(1));
-            //sender.sendAck(response);
+        sender.sendAck(response,out);
 
     }
     

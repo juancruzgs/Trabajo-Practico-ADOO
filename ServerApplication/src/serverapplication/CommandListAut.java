@@ -18,7 +18,8 @@ public class CommandListAut extends Command {
     
     public void execute(Broker broker, Sender sender, PrintWriter out){
        
-            ArrayList response = broker.listAut(this.parameters.get(0));
+            ArrayList<Autenticacion> response = broker.listAut(this.parameters.get(0));
+            sender.sendListAut(response,out);
         
     }
     

@@ -8,6 +8,9 @@ package serverapplication;
  *
  * @author Juan
  */
-public class AbstractFactory {
+public interface AbstractFactory {
+    
+    public Parser createParser();
+    public Sender createSender();
     
 }
