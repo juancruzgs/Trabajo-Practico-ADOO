@@ -36,9 +36,7 @@ public class XMLParser{
     /**
      * Parse a XML file 
      * @param message action that client wants to be done
-     * @param passwordAdmin password from admin
-     * @param remoteIP ip from the client
-     * @return 
+     * @return {@link Database.Broker} 
      */
     public Command parse(String message){
         try {

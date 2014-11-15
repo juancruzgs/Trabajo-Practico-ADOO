@@ -46,7 +46,7 @@ public class MessageAck {
     }
 
     /**
-     * @param descripcion the descripcion to set
+     * @param description the description to set
      */
     public void setDescription(String description) {
         this.description = description;

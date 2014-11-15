@@ -162,10 +162,10 @@ public class Broker {
     }
     /**
      *  Singleton 
-     * @param url 
-     * @param user 
-     * @param password
-     * @return 
+     * @param url to connect the server and database
+     * @param user database user
+     * @param password database password
+     * @return {@link Database.Broker}
      */
     public static Broker getInstance(String url,String user,String password){   
         if (instance == null){

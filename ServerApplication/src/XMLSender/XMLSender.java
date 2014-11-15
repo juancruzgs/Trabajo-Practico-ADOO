@@ -28,7 +28,6 @@ public class XMLSender{
     /**
      * Sends an acknowledgment message.It could be ok message or error message
      * @param response Response to add,modify,remove or authenticate messages
-     * @param out Response to the client
      */
 
     public void sendAck(MessageAck response){
@@ -39,7 +38,6 @@ public class XMLSender{
     /**
      * Response to a list users message
      * @param list Users storaged in DataBase
-     * @param out Response to the client
      */
     public void sendListUsers(ArrayList<User> list){
         String st = "<LIST-USERS>";
@@ -56,7 +54,6 @@ public class XMLSender{
     /**
      * Response to a List authentication message
      * @param list Authentications from a specific user
-     * @param out Response to the client 
      */
     public void sendListAut(ArrayList<Authentication> list){
         String st = "<LIST-AUT>";
@@ -74,7 +71,6 @@ public class XMLSender{
     /**
      * Sends a message error 
      * @param error Error message
-     * @param out Response to the client
      */
     public void sendError(String error){
        
